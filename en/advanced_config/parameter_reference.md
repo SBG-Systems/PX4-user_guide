@@ -21112,6 +21112,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 2 | 20 |  | 6.00 | m/s 
 
+### LNDFW_ROT_MAX (`FLOAT`) {#LNDFW_ROT_MAX}
+
+Fixed-wing land detector: max rotational speed.
+
+Maximum allowed norm of the angular velocity in the landed state.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0.5 | deg/s 
+
 ### LNDFW_TRIG_TIME (`FLOAT`) {#LNDFW_TRIG_TIME}
 
 Fixed-wing land detection trigger time.
@@ -21164,9 +21174,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### LNDMC_ROT_MAX (`FLOAT`) {#LNDMC_ROT_MAX}
 
-Multicopter max rotation.
+Multicopter max rotational speed.
 
-Maximum allowed angular velocity around each axis allowed in the landed state.
+Maximum allowed norm of the angular velocity (roll, pitch) in the landed state.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -26508,7 +26518,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 RTL precision land mode.
 
-Use precision landing when doing an RTL landing phase.
+Use precision landing when doing an RTL landing phase. This setting does not apply for RTL destinations planned as part of a mission.
 
 **Values:**
 
@@ -33140,9 +33150,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### SYS_HAS_MAG (`INT32`) {#SYS_HAS_MAG}
 
-Control if the vehicle has a magnetometer.
+Control if and how many magnetometers are expected.
 
-Set this to 0 if the board has no magnetometer. If set to 0, the preflight checks will not check for the presence of a magnetometer, otherwise N sensors are required.
+0: System has no magnetometer, preflight checks should pass without one. 1-N: Require the presence of N magnetometer sensors for check to pass.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -35610,7 +35620,7 @@ This parameter defines the maximum valid range for a rangefinder connected via U
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 200.0 | m 
+&nbsp; |  |  |  | 999.0 | m 
 
 ### UAVCAN_RNG_MIN (`FLOAT`) {#UAVCAN_RNG_MIN}
 
@@ -35620,7 +35630,7 @@ This parameter defines the minimum valid range for a rangefinder connected via U
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.3 | m 
+&nbsp; |  |  |  | 0.0 | m 
 
 ### UAVCAN_SUB_ASPD (`INT32`) {#UAVCAN_SUB_ASPD}
 
